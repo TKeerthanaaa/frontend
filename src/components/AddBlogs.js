@@ -3,12 +3,12 @@ import React from "react";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useStyles } from "./utils";
+// import { useStyles } from "./utils";
 
 const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
 
 const AddBlogs = () => {
-  const classes = useStyles;
+  // const classes = useStyles;
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     title: "",
@@ -57,7 +57,7 @@ const AddBlogs = () => {
           width={"80%"}
         >
           <Typography
-            className={classes.font}
+            
             fontWeight={"bold"}
             padding={3}
             color="black"
@@ -66,33 +66,33 @@ const AddBlogs = () => {
           >
             Post Your Blog
           </Typography>
-          <InputLabel className={classes.font} sx={labelStyles}>
+          <InputLabel sx={labelStyles}>
             Title
           </InputLabel>
           <TextField
-            className={classes.font}
+            
             name="title"
             onChange={handleChange}
             value={inputs.title}
             margin="normal"
             variant="outlined"
           />
-          <InputLabel className={classes.font} sx={labelStyles}>
+          <InputLabel sx={labelStyles}>
             Description
           </InputLabel>
           <TextField
-            className={classes.font}
+            
             name="description"
             onChange={handleChange}
             value={inputs.description}
             margin="normal"
             variant="outlined"
           />
-          <InputLabel className={classes.font} sx={labelStyles}>
+          <InputLabel sx={labelStyles}>
             ImageURL
           </InputLabel>
           <TextField
-            className={classes.font}
+            
             name="imageURL"
             onChange={handleChange}
             value={inputs.imageURL}

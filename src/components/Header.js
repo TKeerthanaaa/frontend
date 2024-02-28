@@ -3,11 +3,8 @@ import { AppBar, Toolbar, Box, Button, Tabs, Tab } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../store";
-import { useStyles } from "./utils";
-
 
 const Header = () => {
-  const classes = useStyles;
   const dispath = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const [value, setValue] = useState();
@@ -33,24 +30,9 @@ const Header = () => {
                 value={value}
                 onChange={(e, val) => setValue(val)}
               >
-                <Tab
-                  className={classes.font}
-                  LinkComponent={NavLink}
-                  to="/blogs"
-                  label="All Blogs"
-                />
-                <Tab
-                  className={classes.font}
-                  LinkComponent={NavLink}
-                  to="/myBlogs"
-                  label="My Blogs"
-                />
-                <Tab
-                  className={classes.font}
-                  LinkComponent={NavLink}
-                  to="/blogs/add"
-                  label="Add Blog"
-                />
+                <Tab LinkComponent={NavLink} to="/blogs" label="All Blogs" />
+                <Tab LinkComponent={NavLink} to="/myBlogs" label="My Blogs" />
+                <Tab LinkComponent={NavLink} to="/blogs/add" label="Add Blog" />
               </Tabs>
             </Box>
           )}
