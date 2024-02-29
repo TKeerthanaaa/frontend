@@ -71,6 +71,12 @@ const Header = () => {
           </Box>
         </Toolbar>
       </AppBar>
+      <img
+        width={1345}
+        height={350}
+        src="https://cdn.pixabay.com/photo/2016/09/18/03/40/logo-1677364_960_720.png"
+        alt=""
+      />
       {/* <Home /> */}
     </>
   );

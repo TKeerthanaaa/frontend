@@ -32,7 +32,7 @@ const UserBlogs = () => {
             title={blog.title}
             description={blog.description}
             imageURL={blog.image}
-            name={blog.userName}
+            user={blog.userName}
           />
         ))}
     </div>
