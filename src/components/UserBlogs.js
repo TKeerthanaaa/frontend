@@ -5,34 +5,20 @@ import Blog from "./Blog";
 const UserBlogs = () => {
   const [user, setUser] = useState();
   const id = localStorage.getItem("userId");
-  // const sendRequest = async () => {
-  //   const res = await axios
-  //     .get(`https://long-ruby-jellyfish-tux.cyclic.app/api/blog/user/${id}`)
-  //     .catch((err) => console.log(err));
-
-  //   const data = await res.data;
-  //   return data;
-  // };
   const sendRequest = async () => {
-    try {
-      const res = await axios.get(
-        `https://long-ruby-jellyfish-tux.cyclic.app/api/blog/user/${id}`
-      );
-      return res.data; // Return the data directly
-    } catch (error) {
-      console.error("Error fetching user blogs:", error);
-      return null;
-    }
+    const res = await axios
+      .get(`https://long-ruby-jellyfish-tux.cyclic.app/api/blog/user/${id}`)
+      .catch((err) => console.log(err));
+
+    const data = await res.data;
+    return data;
   };
 
-  // useEffect(() => {
-  //   sendRequest().then((data) => setUser(data.user));
-  // }, []);
-  // console.log(user);
   useEffect(() => {
-    sendRequest().then((data) => setUser(data && data.user)); // Handle the promise
+    sendRequest().then((data) => setUser(data.user));
   }, []);
   console.log(user);
+
   return (
     <div>
       {""}
