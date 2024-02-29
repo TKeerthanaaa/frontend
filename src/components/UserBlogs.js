@@ -5,16 +5,32 @@ import Blog from "./Blog";
 const UserBlogs = () => {
   const [user, setUser] = useState();
   const id = localStorage.getItem("userId");
-  const sendRequest = async () => {
-    const res = await axios
-      .get(`http://localhost:5000/api/blog/user/${id}`)
-      .catch((err) => console.log(err));
+  // const sendRequest = async () => {
+  //   const res = await axios
+  //     .get(`https://long-ruby-jellyfish-tux.cyclic.app/api/blog/user/${id}`)
+  //     .catch((err) => console.log(err));
 
-    const data = await res.data;
-    return data;
+  //   const data = await res.data;
+  //   return data;
+  // };
+  const sendRequest = async () => {
+    try {
+      const res = await axios.get(
+        `https://long-ruby-jellyfish-tux.cyclic.app/api/blog/user/${id}`
+      );
+      return res.data; // Return the data directly
+    } catch (error) {
+      console.error("Error fetching user blogs:", error);
+      return null;
+    }
   };
+
+  // useEffect(() => {
+  //   sendRequest().then((data) => setUser(data.user));
+  // }, []);
+  // console.log(user);
   useEffect(() => {
-    sendRequest().then((data) => setUser(data.user));
+    sendRequest().then((data) => setUser(data && data.user)); // Handle the promise
   }, []);
   console.log(user);
   return (
@@ -30,7 +46,7 @@ const UserBlogs = () => {
             title={blog.title}
             description={blog.description}
             imageURL={blog.image}
-            userName={user.name}
+            name={blog.userName}
           />
         ))}
     </div>

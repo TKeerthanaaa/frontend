@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../store";
 
 const Header = () => {
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(0); // Initialize value with 0 for the first tab
   return (
     <>
       <AppBar
@@ -59,7 +59,7 @@ const Header = () => {
             )}
             {isLoggedIn && (
               <Button
-                onClick={() => dispath(authActions.logout())}
+                onClick={() => dispatch(authActions.logout())}
                 LinkComponent={NavLink}
                 to="/auth"
                 variant="contained"

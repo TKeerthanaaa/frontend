@@ -9,7 +9,9 @@ const Blogs = () => {
 
   const sendRequest = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/blog");
+      const res = await axios.get(
+        "https://long-ruby-jellyfish-tux.cyclic.app/api/blog"
+      );
       const data = res.data;
       return data;
     } catch (error) {

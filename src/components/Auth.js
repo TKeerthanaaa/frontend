@@ -16,7 +16,7 @@ const Auth = () => {
     password: "",
   });
   const [isSignup, setIsSignup] = useState(false);
-  const [isLogin, setLogin] = useState(false);
+
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
